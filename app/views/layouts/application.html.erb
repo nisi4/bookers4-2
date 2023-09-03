@@ -12,6 +12,63 @@
   </head>
 
   <body>
+    <header class="d-flex justify-content-around h-100 bg-dark">
+      <div class="title">
+        <a href="/" class="text-decoration-none"><h4 class="text-white p-3 mb-0">Bookers</h4></a>
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggle-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
+              <li class="nav-item mr-3">
+                <%= link_to root_path,class: "text-white text-decoration-none" do %>
+                  <i class="fas fa-home"></i> Home
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to root_path,class: "text-white text-decoration-none" do %>
+                  <i class="fas fa-link"></i> About
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to root_path,class: "text-white text-decoration-none" do %>
+                  <i class="fas fa-user-plus"></i> Sign up
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to root_path,class: "text-white text-decoration-none" do %>
+                  <i class="fas fa-sign-in-alt"></i> Log in
+                <% end %>
+              </li>
+            <% else %>
+              <li class="nav-item mr-3">
+                <%= link_to root_path,class: "text-white text-decoration-none" do %>
+                  <i class="fas fa-home"></i> Home
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to root_path,class: "text-white text-decoration-none" do %>
+                  <i class="fas fa-users"></i> Users
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to root_path,class: "text-white text-decoration-none" do %>
+                  <i class="fas fa-book-open"></i> Books
+                <% end %>
+              </li>
+              <li class="nav-item mr-3">
+                <%= link_to root_path,class: "text-white text-decoration-none" do %>
+                  <i class="fas fa-sign-out-alt"></i> Log out
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

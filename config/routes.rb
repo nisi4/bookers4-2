@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "homes#top"
   get 'users/new'
   get 'users/index'
   get 'users/show'
