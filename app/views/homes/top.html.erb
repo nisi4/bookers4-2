@@ -1,2 +1,25 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-11 col-sm-10 col-md-9 col-lg-7 mx-auto">
+      <div class="title mt-3">
+        <h1>welcome to <i class="fas fa-book"></i>Bookers!!</h1>
+      </div>
+      <div class="text">
+        <p class="my-2">In <i class="fas fa-book"></i><span class="font-weight-bold">Bookers</span>,</p>
+        <p class="my-2">you can share and exchange your opinions, inpressions, and emotions</p>
+        <p class="my-2">about various books!</p>
+        </p>
+      </div>
+      <%= link_to new_user_session_path do %>
+        <div class="row w-100">
+          <div class="col-10 mx-auto btn btn-info">Log in</div>
+        </div>
+      <% end %>
+      <%= link_to new_user_registration_path do %>
+        <div class="row w-100">
+          <div class="col-10 mx-auto btn btn-success mt-3">Sign up</div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -18,7 +18,7 @@
       </div>
       <nav class="navbar navbar-expand-lg navbar-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggle-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
@@ -39,8 +39,8 @@
                 <% end %>
               </li>
               <li class="nav-item mr-3">
-                <%= link_to root_path,class: "text-white text-decoration-none" do %>
-                  <i class="fas fa-sign-in-alt"></i> Log in
+                <%= link_to user_registration_path,method: :delete,class: "text-white text-decoration-none" do %>
+                  <i class="fas fa-sign-out-alt"></i> Log out
                 <% end %>
               </li>
             <% else %>
@@ -61,7 +61,7 @@
               </li>
               <li class="nav-item mr-3">
                 <%= link_to root_path,class: "text-white text-decoration-none" do %>
-                  <i class="fas fa-sign-out-alt"></i> Log out
+                  <i class="fas fa-sign-in-alt"></i> Log in
                 <% end %>
               </li>
             <% end %>
@@ -70,5 +70,8 @@
       </nav>
     </header>
     <%= yield %>
+    <div class="footer mt-5 w-100 mx-auto">
+      <p class="text-center">CopyRight Infratop.inc</p>
+    </div>
   </body>
 </html>
