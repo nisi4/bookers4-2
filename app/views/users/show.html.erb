@@ -1,2 +1,33 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-11 mx-auto">
+      <div class="row">
+        <div class="col-3">
+          <div class="user_info">
+            <h2>User info</h2>
+            <%= image_tag @user.image %>
+            name <%= @user.name %>
+            introduction <%= @user.introduction %>
+            <%= link_to user_edit_path,class: "btn btn-outline-secondary" do %>
+              <i class="fas fa-user-cog"></i>
+            <% end %>
+          </div>
+          <div class="new_book">
+            <h2>New book</h2>
+            <%= form_with model: @book,url: books_path,method: :post do |f| %>
+              <p>Title</p>
+              <%= f.text_field :title %>
+              <p>Opinion</p>
+              <%= f.text_area :body %>
+              
+              <%= f.submit "Create Book",class: "btn btn-success" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-7">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
