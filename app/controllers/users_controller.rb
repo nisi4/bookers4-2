@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def show
     if user_signed_in?
       @user = User.find(params[:id])
+      @user_books = @user.books.all 
     end
   end
 
