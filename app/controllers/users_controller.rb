@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def show
     if user_signed_in?
       @user = User.find(params[:id])
-      @user_books = @user.books.all 
+      @user_books = @user.books.all
+      @book = Book.new
     end
   end
 
