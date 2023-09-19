@@ -3,54 +3,31 @@
     <div class="col-11 mx-auto">
       <div class="row">
         <div class="col-4">
-          <div class="user_info">
-            <h2 class="mt-4">User info</h2>
-            <%= image_tag @user.get_image(100,100) %><br>
-            <table class="table table-top-bordered">
-              <tr>
-                <td>name</td>
-                <td><%= @user.name %></td>
-              </tr>
-              <tr>
-                <td>introduction</td>
-                <td><%= @user.introduction %></td>
-              </tr>
-            </table>
-            <%= link_to user_edit_path,class: "btn btn-outline-secondary w-100" do %>
-              <i class="fas fa-user-cog"></i>
-            <% end %>
-          </div>
-          <div class="new_book">
-            <h2 class="mt-4">New book</h2>
-            <%= form_with model: @book,url: books_path,method: :post do |f| %>
-              <p>Title</p>
-              <%= f.text_field :title %>
-              <p class="mt-2">Opinion</p>
-              <%= f.text_area :body %>
-              
-              <%= f.submit "Create Book",class: "btn btn-success mt-3" %>
-            <% end %>
-          </div>
+          <%= render "common", user: @user, book: @book %>
         </div>
         <div class="col-8">
           <div class="users">
             <h2 class="mt-4">Books</h2>
-            <table class="table">
-              <tr>
-                <th></th>
-                <th>Title</th>
-                <th colspan="2">Opinion</th>
-              </tr>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Title</th>
+                  <th colspan="2">Opinion</th>
+                </tr>
+              </thead>
               <% @user_books.each do |user_book| %>
-              <tr>
-                <td><%= image_tag @user.get_image(50,50) %></td>
-                <td>
-                  <%= link_to book_show_path(user_book.id) do %>
-                    <%= user_book.title %>
-                  <% end %>
-                </td>
-                <td colspan="2"><%= user_book.body %></td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td><%= image_tag @user.get_image(80,80) %></td>
+                  <td>
+                    <%= link_to book_show_path(user_book.id) do %>
+                      <%= user_book.title %>
+                    <% end %>
+                  </td>
+                  <td colspan="2"><%= user_book.body %></td>
+                </tr>
+              </tbody>
               <% end %>
             </table>
           </div>
