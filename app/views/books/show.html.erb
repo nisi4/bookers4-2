@@ -1,2 +1,44 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-11 mx-auto">
+      <div class="row">
+        <div class="col-4">
+          <%= render "users/common", user: @user, book: @book %>
+        </div>
+        <div class="col-8">
+          <div class="users">
+            <h2 class="mt-4">Book detail</h2>
+            <table class="table">
+              <tr>
+                <td>
+                  <%= image_tag @user.get_image(80,80) %><br>
+                  <%= link_to user_show_path(@user.id) do %>
+                    <%= @user.name %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to book_show_path(@book_detail.id) do %>
+                    <%= @book_detail.title %>
+                  <% end %>
+                </td>
+                <td><%= @book_detail.body %></td>
+                <% if @user == current_user %>
+                  <td>
+                    <%= link_to book_edit_path(@book_detail.id),class: "btn btn-success btn-sm" do %>
+                      <span>Edit</span>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to book_destroy_path(@book_detail.id),method: :delete,"data-confirm" => "本当に削除しますか？",class: "btn btn-danger btn-sm" do %>
+                      <span>Destroy</span>
+                    <% end %>
+                  </td>
+                <% end %>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
