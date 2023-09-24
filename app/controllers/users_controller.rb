@@ -17,6 +17,13 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_show_path(@user.id)
   end
   
   private
@@ -25,5 +32,9 @@ class UsersController < ApplicationController
     unless user.id == current_user.id
       redirect_to root_path
     end
+  end
+  
+  def user_params
+    params.require(:user).permit(:name,:image,:introduction)
   end
 end

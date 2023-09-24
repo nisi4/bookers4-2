@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'users/:id' => "users#show",as: "user_show"
   get 'users/:id/edit' => "users#edit",as: "user_edit"
+  patch "users/:id" => "users#update",as: "user_update"
   get 'books/new'
   get 'books/index'
   get 'books/:id' => "books#show",as: "book_show"
